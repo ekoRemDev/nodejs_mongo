@@ -16,6 +16,7 @@ connectDB().then(r => {
 
 // Route files
 const bootcamps = require('./routes/bootcamps');
+const questions = require('./routes/question');
 
 
 const app = express();
@@ -32,10 +33,11 @@ if (process.env.NODE_ENV === 'development') {
 
 // mount routes
 app.use('/api/v1/bootcamps', bootcamps);
+app.use('/api/v1/questions', questions);
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 6000
+const PORT = process.env.PORT || 5000
 
 const server = app.listen(
     PORT,
