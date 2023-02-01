@@ -12,7 +12,7 @@ const errorHandler = (err,req,res,next)=>{
         error = new ErrorResponse(message,404);
     }
 
-    // Duplicate Error
+    // Mongoose Duplicate Error
     if(err.code === 11000){
         const message = 'Duplicate field value entered';
         error = new ErrorResponse(message,400);

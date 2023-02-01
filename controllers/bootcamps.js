@@ -1,12 +1,13 @@
 const Bootcamp = require('../models/Bootcamp');
 const ErrorResponse = require('../util/errorResponse')
+const asyncHandler = require('../middleware/async')
 
 // @desc Get all bootcamps
 // @route GET /api/v1/bootcamps
 // @access Public
 exports.getBootcamps = async (req, res, next) => {
 
-    try {
+
         const bootcamps = await Bootcamp.find()
 
         res.status(200).json(
@@ -16,9 +17,9 @@ exports.getBootcamps = async (req, res, next) => {
                 data: bootcamps,
             }
         )
-    } catch (err) {
-        next(err);
-    }
+
+
+
 
 
 }
